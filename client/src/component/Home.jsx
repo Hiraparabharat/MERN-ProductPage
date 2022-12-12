@@ -29,11 +29,9 @@ const Home = () => {
   });
   const navigate = useNavigate();
 
-  console.log(filter);
-
   return (
     <Grid container p="15px" rowGap="15px">
-      <Grid item xs={12} md={3} pr="15px">
+      <Grid item xs={12} md={3} pr={{ md: "15px" }}>
         <form
           onSubmit={(e) => {
             e.preventDefault();
