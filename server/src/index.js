@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const ProductRoute = require("./Routes/ProductRoute");
+const path = require("path");
 
 app.use(express.json());
 app.use(cors());
@@ -19,6 +20,10 @@ app.use((err, req, res, next) => {
   }
 
   res.status(500).send(err);
+});
+
+app.use("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "public", "index.html"));
 });
 
 database().then(() => {
